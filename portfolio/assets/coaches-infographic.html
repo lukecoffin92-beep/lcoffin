@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coaches Infographic - Fixed</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #e9edf8; }
+  .ig { font-family: 'Inter', sans-serif; background: #e9edf8; padding: 24px; }
+  .card { background: #fff; max-width: 500px; margin: 0 auto; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 45px rgba(32, 50, 91, 0.10); }
+  .top { background: #243f73; padding: 32px 30px 24px; color: #fff; }
+  .eyebrow { font-size: 10px; font-weight: 800; letter-spacing: 1.7px; text-transform: uppercase; color: #9fc4ff; margin-bottom: 11px; }
+  .main-title { font-size: 28px; font-weight: 900; line-height: 1.12; margin-bottom: 7px; }
+  .main-title span { color: #9fc4ff; }
+  .tagline { font-size: 12.5px; color: rgba(255,255,255,0.72); }
+  .stripe { height: 5px; background: #76a9f2; }
+  .stat-band { background: #243f73; padding: 18px 30px 20px; }
+  .stat-inner { display: flex; align-items: center; gap: 18px; }
+  .big-num { font-size: 58px; font-weight: 900; color: #9fc4ff; line-height: .9; white-space: nowrap; letter-spacing: -2px; }
+  .big-num small { font-size: 22px; vertical-align: super; margin-right: 1px; letter-spacing: 0; }
+  .stat-copy { font-size: 12px; color: #edf4ff; line-height: 1.45; font-weight: 600; }
+  .stat-src { font-size: 9px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+  .body { padding: 24px 30px 26px; }
+  .section-label { font-size: 9px; font-weight: 900; letter-spacing: 1.6px; text-transform: uppercase; color: #3566aa; margin-bottom: 12px; margin-top: 22px; }
+  .section-label:first-child { margin-top: 0; }
+  .spectrum { display: grid; grid-template-columns: 1fr 16px 1fr 16px 1fr; gap: 6px; align-items: stretch; }
+  .arrow { display: flex; align-items: center; justify-content: center; color: #7f93b7; font-size: 18px; font-weight: 900; }
+  .sp-box { border-radius: 12px; padding: 16px 10px 15px; text-align: center; }
+  .sp-icon { width: 34px; height: 34px; margin: 0 auto 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .sp-icon svg { width: 19px; height: 19px; stroke-width: 3; fill: none; stroke: currentColor; }
+  .sp-box.g { background: #effaf5; border: 2px solid #61c58f; color: #1a7a45; }
+  .sp-box.y { background: #fffbea; border: 2px solid #f1cf3d; color: #7a6000; }
+  .sp-box.r { background: #fff1f1; border: 2px solid #ef8f8f; color: #a02020; }
+  .sp-label { font-size: 11.5px; font-weight: 900; margin-bottom: 5px; }
+  .sp-desc { font-size: 9.7px; color: #4f5968; line-height: 1.35; }
+  .signs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+  .sign-row { background: #f5f7ff; border-radius: 11px; padding: 13px 13px 12px; }
+  .sign-cat { font-size: 11px; font-weight: 800; color: #243f73; margin-bottom: 7px; display:flex; align-items:center; gap:6px; }
+  .mini-icon { width: 18px; height: 18px; border-radius: 50%; background:#dbe8ff; color:#3566aa; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .mini-icon svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2.6; }
+  .sign-early, .sign-late { font-size: 10px; border-radius: 6px; padding: 4px 7px; margin-bottom: 4px; display: inline-block; font-weight: 650; }
+  .sign-early { color: #7a6000; background: #fff8d7; }
+  .sign-late { color: #a02020; background: #ffe8e8; }
+  .legend { display:flex; gap:10px; margin-top:8px; margin-bottom:4px; }
+  .legend span { font-size:9.5px; padding:3px 8px; border-radius:5px; font-weight:700; }
+  .legend .early { color:#7a6000; background:#fff8d7; }
+  .legend .late { color:#a02020; background:#ffe8e8; }
+  .steps-block { background: #243f73; border-radius: 12px; padding: 17px 19px; }
+  .steps-title { font-size: 12px; font-weight: 800; color: #9fc4ff; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.7px; }
+  .steps-list { list-style: none; }
+  .steps-list li { font-size: 11.5px; color: #e5efff; padding: 7px 0 7px 30px; position: relative; line-height: 1.35; border-bottom: 0.5px solid rgba(255,255,255,0.11); }
+  .steps-list li:last-child { border-bottom: none; }
+  .steps-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: rgba(159,196,255,.18); border: 1px solid rgba(159,196,255,.55); }
+  .steps-list li::after { content: ""; position: absolute; left: 6px; top: 13px; width: 6px; height: 3px; border-left: 2px solid #9fc4ff; border-bottom: 2px solid #9fc4ff; transform: rotate(-45deg); }
+  .prev-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .prev-pill { background: #eef4ff; color: #243f73; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 20px; border: 1.5px solid #bad2fb; }
+  .footer { background: #f6f8fd; border-top: 0.5px solid #dfe7f3; padding: 10px 30px; font-size: 8.5px; color: rgba(82, 91, 110, .62); line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="ig">
+  <div class="card">
+    <div class="top">
+      <div class="eyebrow">UMD Athletics · Coaching Staff</div>
+      <div class="main-title">Overtraining &amp; <span>Mental Health</span></div>
+      <div class="tagline">Recognize it, respond to it, prevent it</div>
+    </div>
+    <div class="stripe"></div>
+    <div class="stat-band">
+      <div class="stat-inner">
+        <div class="big-num"><small>~</small>10%</div>
+        <div>
+          <div class="stat-copy">of endurance athletes develop overtraining syndrome per season — mental symptoms often appear before physical decline</div>
+          <div class="stat-src">Meeusen et al., Eur J Sport Sci, 2013</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="section-label">Training load spectrum</div>
+      <div class="spectrum">
+        <div class="sp-box g">
+          <div class="sp-icon"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></div>
+          <div class="sp-label">Optimal</div>
+          <div class="sp-desc">Load + recovery in balance. Performance improves.</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="sp-box y">
+          <div class="sp-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+          <div class="sp-label">Overreaching</div>
+          <div class="sp-desc">Short dip. Recovers in about 2 weeks with rest.</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="sp-box r">
+          <div class="sp-icon"><svg viewBox="0 0 24 24"><path d="M12 3L2 21h20L12 3z"/><path d="M12 9v5"/><path d="M12 18h.01"/></svg></div>
+          <div class="sp-label">OTS</div>
+          <div class="sp-desc">Mood symptoms + prolonged decline. Weeks to months to recover.</div>
+        </div>
+      </div>
+
+      <div class="section-label">Behavioral signs to watch for</div>
+      <div class="signs-grid">
+        <div class="sign-row">
+          <div class="sign-cat"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M8 15s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/><circle cx="12" cy="12" r="9"/></svg></span>Mood</div>
+          <div><span class="sign-early">Irritable after practice</span></div>
+          <div><span class="sign-late">Depression, withdrawal</span></div>
+        </div>
+        <div class="sign-row">
+          <div class="sign-cat"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M13 3l-2 6 6-1-7 13 1-8-5 1 7-11z"/></svg></span>Motivation</div>
+          <div><span class="sign-early">Reluctant to train</span></div>
+          <div><span class="sign-late">Wants to quit</span></div>
+        </div>
+        <div class="sign-row">
+          <div class="sign-cat"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M21 12.8A8.5 8.5 0 1111.2 3 6.5 6.5 0 0021 12.8z"/></svg></span>Sleep</div>
+          <div><span class="sign-early">Disrupted sleep</span></div>
+          <div><span class="sign-late">Chronic insomnia</span></div>
+        </div>
+        <div class="sign-row">
+          <div class="sign-cat"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-8-4.5-8-11a5 5 0 019-3 5 5 0 019 3c0 6.5-8 11-8 11z"/></svg></span>Anxiety</div>
+          <div><span class="sign-early">Pre-race stress spikes</span></div>
+          <div><span class="sign-late">Avoids competition</span></div>
+        </div>
+      </div>
+      <div class="legend">
+        <span class="early">Early</span>
+        <span class="late">Escalated</span>
+      </div>
+
+      <div class="section-label">When you see warning signs — respond</div>
+      <div class="steps-block">
+        <div class="steps-title">Response protocol</div>
+        <ul class="steps-list">
+          <li>Private check-in — lead with concern, not performance</li>
+          <li>Cut volume 40–60%, then monitor for 1–2 weeks</li>
+          <li>Refer to UMD Sports Medicine or Counseling if symptoms persist</li>
+          <li>Loop in the support team: nutrition and sports psychology</li>
+          <li>Return to training based on mental recovery, not just physical readiness</li>
+        </ul>
+      </div>
+
+      <div class="section-label">Prevention</div>
+      <div class="prev-pills">
+        <span class="prev-pill">Weekly mood check-ins</span>
+        <span class="prev-pill">Planned unload weeks</span>
+        <span class="prev-pill">Open-door culture</span>
+      </div>
+    </div>
+    <div class="footer">
+      Context: Designed for UMD coaching and athletic training staff working with competitive distance runners.<br>
+      Meeusen, R. et al. (2013). Eur J Sport Sci, 13(1), 1–24. &nbsp; Gouttebarge, V. et al. (2019). Br J Sports Med, 53(11), 700–706.
+    </div>
+  </div>
+</div>
+</body>
+</html>
